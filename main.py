@@ -1,9 +1,13 @@
 from flask import Flask, render_template, request
-import json
 # import smtplib
 
 # USE YOUR OWN npoint LINK! ADD AN IMAGE URL FOR YOUR POST. 👇
-with open("posts.json", mode="r") as file:
+import os
+import json
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+with open(os.path.join(BASE_DIR, "posts.json"), "r") as file:
     posts = json.load(file)
 
 app = Flask(__name__)
